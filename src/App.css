@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.Default-layout {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -28,11 +28,56 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Chapters {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  height: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.Chapters a {
+  text-decoration: none;
+  color: #fff;
+  height: 40px;
+  padding: 0;
+}
+
+.Title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Image-wrap {
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.Image-wrap img {
+  width: 100%;
+}
+
+.Code-wrap {
+  display: flex;
+  width: 1024px;
+  margin: 0 auto;
+  height: 300px;
+  padding: 20px;
+}
+
+.Code-editor {
+  width: 50%;
+  grid-column: 1;
+  height: 100%;
+}
+
+.Code-result {
+  width: 50%;
+  height: 100%;
+  grid-column: 1;
+  background-color: #efefef;
 }
