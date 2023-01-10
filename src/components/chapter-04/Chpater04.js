@@ -3,7 +3,7 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 import ReactHtmlParser from "html-react-parser";
 
 const Chapter04 = () => {
-  const [code, setCode] = React.useState();
+  const [code, setCode] = React.useState('');
 
   const [currMenu, setCurrMenu] = React.useState(0);
   const menus = [
@@ -11,20 +11,22 @@ const Chapter04 = () => {
     {id:1, name:'04-3. 표 만들기'},
   ]
   
-    const getClass = (id) => {
-      return currMenu === id ? 'Contents-menu-items on' : 'Contents-menu-items'
-    }
+  const getClass = (id) => {
+    return currMenu === id ? 'Contents-menu-items on' : 'Contents-menu-items'
+  }
 
   const clickMenu = (e, id) => {
     setCurrMenu(id)
   }
 
-  // data
+  // todo examples
   const examples = [
     "<ol><li>항목 1</li><li>항목 2</li></ol>"
   ]
-
   
+  
+
+
   const listItems = menus
       .map((menu) =>
       <li className={getClass(menu.id)} key={menu.id}>
