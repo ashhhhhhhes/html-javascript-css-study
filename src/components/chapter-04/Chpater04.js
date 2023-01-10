@@ -5,9 +5,30 @@ import ReactHtmlParser from "html-react-parser";
 const Chapter04 = () => {
   const [code, setCode] = React.useState();
 
+  const [currMenu, setCurrMenu] = React.useState(0);
+  const menus = [
+    {id:0, name:'04-2. 목록 만들어보기'},
+    {id:1, name:'04-3. 표 만들기'},
+  ]
+  
+
+  const clickMenu = (e, id) => {
+    setCurrMenu(id)
+  }
+
+  // todo: 메뉴 작업 중
+  const listItems = menus
+      .map((menu) =>
+      <li className="Contents-menu-items" key={menu.id}>
+        <a onClickCapture={(e) => clickMenu(e, menu.id)} href="#">목록 만들어보기</a>
+      </li>
+      );
+
+
   return (
     <div className="Chapter">
       <div className="Title">Chapter 04.</div>
+      <div className="Sub-title">웹 문서에 다양한 내용 입력하기</div>
       <div className="Image-wrap">
         <img
           width="300"
@@ -15,39 +36,45 @@ const Chapter04 = () => {
           alt="HTML 5"
         />
       </div>
-      <ul className="Chapters">
-        <li className="Chapter-items">
-          <a href="/chapter-04">04-02. 목록 만들어보기</a>
-        </li>
-      </ul>
-      <div>
-        <div>
-          웹문서에서 목록은 단순히 어떤 항목을 나열할 뿐만 아니라 CSS와 함께
-          사용해서{" "}
-          <strong>내비게이션을 만들거나 콘텐츠를 배치하는 용도로 사용</strong>
-          가능 하다.
-        </div>
+      <div className="line"></div>
+      <div className="Contents-wrap">
+        <ul className="Contents-menu">
+          <li className="Contents-menu-title">
+          목차
+          </li>
+          {listItems}
+        </ul>
 
-        <div className="Code-wrap">
-          <div className="Code-editor">
-            <CodeEditor
-              value={code}
-              language="html"
-              placeholder="Please enter Html code."
-              onChange={(evn) => setCode(evn.target.value)}
-              padding={20}
-              data-color-mode="dark"
-              style={{
-                fontSize: 14,
-                height: "100%",
-                fontFamily:
-                  "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
-              }}
-            />
+        <div className="Contents-item">
+          <div className="Contents-desc">
+            <p>
+            웹문서에서 목록은 단순히 어떤 항목을 나열할 뿐만 아니라 CSS와 함께
+            사용해서{" "} <strong>내비게이션을 만들거나 콘텐츠를 배치하는 용도로 사용</strong>
+            가능 하다.
+            </p>
           </div>
 
-          <div className="Code-results">
-            {code ? ReactHtmlParser(code) : ""}
+          <div className="Code-wrap">
+            <div className="Code-editor">
+              <CodeEditor
+                value={code}
+                language="html"
+                placeholder="Please enter Html code."
+                onChange={(evn) => setCode(evn.target.value)}
+                padding={20}
+                data-color-mode="dark"
+                style={{
+                  fontSize: 14,
+                  height: "100%",
+                  fontFamily:
+                    "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+                }}
+              />
+            </div>
+
+            <div className="Code-results">
+              {code ? ReactHtmlParser(code) : ""}
+            </div>
           </div>
         </div>
       </div>
