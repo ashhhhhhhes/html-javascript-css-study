@@ -11,22 +11,30 @@ const Chapter04 = () => {
     {id:1, name:'04-3. 표 만들기'},
   ]
   
+    const getClass = (id) => {
+      return currMenu === id ? 'Contents-menu-items on' : 'Contents-menu-items'
+    }
 
   const clickMenu = (e, id) => {
     setCurrMenu(id)
   }
 
-  // todo: 메뉴 작업 중
+  // data
+  const examples = [
+    "<ol><li>항목 1</li><li>항목 2</li></ol>"
+  ]
+
+  
   const listItems = menus
       .map((menu) =>
-      <li className="Contents-menu-items" key={menu.id}>
-        <a onClickCapture={(e) => clickMenu(e, menu.id)} href="#">목록 만들어보기</a>
+      <li className={getClass(menu.id)} key={menu.id}>
+        <a role="button" onClickCapture={(e) => clickMenu(e, menu.id)}  href="javascript:void(0);">목록 만들어보기</a>
       </li>
       );
 
 
   return (
-    <div className="Chapter">
+    <div className="Chapter-container">
       <div className="Title">Chapter 04.</div>
       <div className="Sub-title">웹 문서에 다양한 내용 입력하기</div>
       <div className="Image-wrap">
@@ -53,6 +61,13 @@ const Chapter04 = () => {
             가능 하다.
             </p>
           </div>
+
+
+          <div>
+            <div>순서있는 목록 {"<ol>, <li>"}</div>
+            <div>{examples[0]}</div>
+          </div>
+        
 
           <div className="Code-wrap">
             <div className="Code-editor">

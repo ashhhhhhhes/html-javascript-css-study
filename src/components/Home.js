@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class Home extends React.Component {
   render(children) {
@@ -13,7 +14,7 @@ export default class Home extends React.Component {
         </div>
         <ul className="Chapters">
           <li className="Chapter-items">
-            <a href="/chapter-04">04. 웹 문서에 다양한 내용 입력하기. 👇</a>
+            <Link to="/chapter-04">04. 웹 문서에 다양한 내용 입력하기. 👇</Link>
           </li>
         </ul>
       </div>

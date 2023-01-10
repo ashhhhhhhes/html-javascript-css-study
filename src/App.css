@@ -16,18 +16,28 @@
 .Default-layout {
   background-color: #282c34;
   min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Home {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
-
+.Chapter-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .Chapters {
   text-decoration: none;
   color: #fff;
@@ -55,7 +65,7 @@
 
 .Title {
   max-width: 600px;
-  margin: 0 auto 12px;
+  margin: 80px auto 12px;
   background-color: #fff;
   color: #333333;
   padding: 2px;
@@ -85,13 +95,48 @@
   width: 100%;
 }
 
+.Code-wrap:before {
+  content: '👩‍💻 직접 해보기';
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  font-size: 14px;
+}
 .Code-wrap {
   display: flex;
-  min-width: 1024px;
-  margin: 0 auto;
+  margin: 20px auto;
   height: 300px;
   padding: 20px;
+  position: relative;
 }
+
+.Content-list ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  overflow: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Content-list li{
+  height: 50px;
+  background-color: rgb(31, 28, 39);
+  /* background-color: rgba(65, 59, 82, 0.311); */
+  color: #fff;
+  text-decoration: none;
+}
+
+.Content-list li a{
+  text-decoration: none;
+  width: 100%;
+  padding: 20px;
+  font: 14px;
+}
+
+
+
 
 .Code-editor {
   width: 50%;
@@ -99,20 +144,28 @@
   height: 100%;
 }
 
-.Code-result {
+.Code-results {
+  box-sizing: border-box;
   width: 50%;
-  height: 100%;
+  height: 300;
   grid-column: 1;
-  background-color: #efefef;
+  color: #202329;
+  background-color: rgb(255, 255, 255);;
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  margin-left: 24px;
+  position: relative;
 }
 
+.Code-results::before {
+  content: '미리보기';
+  color: #3b414b;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
 
 .Contents-wrap {
   width: 100%;
-  height: auto;
-}
-
-.Contents-wrap {
   height: auto;
   font-size: 14px;
   display: flex;
@@ -130,9 +183,10 @@
   list-style: none;
 }
 
+
 .Contents-menu-title {
-  background-color: rgb(31, 28, 39);
   font-weight: bold;
+  font-size: 16px;
 }
 
 .Contents-menu-title,
@@ -146,6 +200,16 @@
   border-bottom: 1px solid #333333;
 }
 
+.Contents-menu a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
 .Contents-menu-items.on,
 .Contents-menu-items:hover {
   background-color: rgba(65, 59, 82, 0.311);
@@ -157,10 +221,22 @@
 }
 
 .Contents-item {
-  width: calc(100% - 300px);
+  width: calc(100% - 240px);
 }
 
 .Contents-desc {
+  border: 10px solid #2a2e35;
+  background-color: #202329;
+  font-size: 16px;
+  padding: 36px;
+  position: relative;
+  margin: 0 auto;
+}
 
+.Contents-desc p::before {
+  content: '💡';
+  display: inline;
+  padding: 4px;
+  
 }
 
