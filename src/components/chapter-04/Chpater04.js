@@ -1,14 +1,14 @@
 import React from "react";
-import CodeEditor from "@uiw/react-textarea-code-editor";
-import ReactHtmlParser from "html-react-parser";
+import Chapter04e02 from "./Chapter04-2";
+import Chapter04e03 from "./Chapter04-3";
 
 const Chapter04 = () => {
   const [code, setCode] = React.useState('');
 
   const [currMenu, setCurrMenu] = React.useState(0);
   const menus = [
-    {id:0, name:'04-2. 목록 만들어보기'},
-    {id:1, name:'04-3. 표 만들기'},
+    {id:0, name:'04-2. 목록 만들어보기', render: () => <Chapter04e02 />},
+    {id:1, name:'04-3. 표 만들기', render: () => <Chapter04e03 />},
   ]
   
   const getClass = (id) => {
@@ -19,18 +19,12 @@ const Chapter04 = () => {
     setCurrMenu(id)
   }
 
-  // todo examples
-  const examples = [
-    "<ol><li>항목 1</li><li>항목 2</li></ol>"
-  ]
-  
-  
 
 
   const listItems = menus
       .map((menu) =>
       <li className={getClass(menu.id)} key={menu.id}>
-        <a role="button" onClickCapture={(e) => clickMenu(e, menu.id)}  href="javascript:void(0);">목록 만들어보기</a>
+        <a role="button" onClickCapture={(e) => clickMenu(e, menu.id)}  href="#">{menu.name}</a>
       </li>
       );
 
@@ -54,46 +48,9 @@ const Chapter04 = () => {
           </li>
           {listItems}
         </ul>
-
-        <div className="Contents-item">
-          <div className="Contents-desc">
-            <p>
-            웹문서에서 목록은 단순히 어떤 항목을 나열할 뿐만 아니라 CSS와 함께
-            사용해서{" "} <strong>내비게이션을 만들거나 콘텐츠를 배치하는 용도로 사용</strong>
-            가능 하다.
-            </p>
-          </div>
-
-
-          <div>
-            <div>순서있는 목록 {"<ol>, <li>"}</div>
-            <div>{examples[0]}</div>
-          </div>
         
+        {menus[currMenu].render()}
 
-          <div className="Code-wrap">
-            <div className="Code-editor">
-              <CodeEditor
-                value={code}
-                language="html"
-                placeholder="Please enter Html code."
-                onChange={(evn) => setCode(evn.target.value)}
-                padding={20}
-                data-color-mode="dark"
-                style={{
-                  fontSize: 14,
-                  height: "100%",
-                  fontFamily:
-                    "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
-                }}
-              />
-            </div>
-
-            <div className="Code-results">
-              {code ? ReactHtmlParser(code) : ""}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
