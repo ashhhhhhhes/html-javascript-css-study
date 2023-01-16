@@ -295,3 +295,18 @@
   padding: 2px 4px;
   color: rgb(48, 80, 176);
 }
+
+.Code-results * {
+  max-width: 100%;
+  position: relative;
+}
+
+.Code-results::before {
+  content: attr(data-message);
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: red;
+  background: none;
+
+}

@@ -1,8 +1,6 @@
 
 import React from "react";
-import CodeEditor from "@uiw/react-textarea-code-editor";
-import ReactHtmlParser from "html-react-parser";
-
+import CodeEditorWrap from "../common/CodeEditorWrap";
 
 const Chapter04e03 = () => {
   const tab = '    '
@@ -93,28 +91,7 @@ const Chapter04e03 = () => {
            </p>
          </div>
 
-         <div className="Code-wrap">
-           <div className="Code-editor">
-             <CodeEditor
-               value={code}
-               language="html"
-               placeholder="👇 Please enter Html code."
-               onChange={(evn) => setCode(evn.target.value)}
-               padding={20}
-               data-color-mode="dark"
-               style={{
-                 minHeight: 300,
-                 fontSize: 14,
-                 fontFamily:
-                   "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
-               }}
-             />
-           </div>
-
-           <div className="Code-results">
-             {code ? ReactHtmlParser(code) : ""}
-           </div>
-         </div>
+         <CodeEditorWrap data={code} setCode={(text) => { setCode(text)}}/>
        </div>
    )
 
